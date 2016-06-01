@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+<br/>bbb<%= User.new.hi %>aaa
+
+<a href="https://dev.vzwapi.dev.cloud.synchronoss.net:8443/authorize?client_id=fgZgrAZd4OWA5qIBZQ&redirect_uri=http://localhost:81/projects/synchronoss/sample/index.php&response_type=code" >Login With Cloud </a>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.upcaseletter(user.first_name) %></td>
+        <td><%= user.upcaseletter(user.last_name) %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
